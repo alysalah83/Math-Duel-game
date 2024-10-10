@@ -1,3 +1,3 @@
-#Math deul Game
+# Math deul Game
 
-a game that test your speed at math by solving some equations and pick it solve between 20 card !
+A game that tests your speed in math by solving equations and choosing the correct answer from among 20 cards. It can also be a great educational game for students to improve their calculation speed!
