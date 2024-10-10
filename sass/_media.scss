@@ -1,0 +1,90 @@
+@media (min-width: 1900px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 1900px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media (max-width: 1400px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 55%;
+  }
+
+  body {
+    gap: 2.4rem;
+  }
+
+  .main {
+    width: 65vw;
+  }
+}
+
+@media (max-width: 900px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media (max-width: 740px) {
+  html {
+    font-size: 40%;
+  }
+  .cards__section {
+    max-width: 100rem;
+    max-height: 70rem;
+  }
+}
+
+@media (max-width: 650px) {
+  html {
+    font-size: 35%;
+  }
+  body {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 570px) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media (max-width: 470px) {
+  html {
+    font-size: 25%;
+  }
+  .side {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 1.6rem;
+    justify-content: space-between;
+  }
+  .cards__section {
+    max-width: 100%;
+  }
+  .main {
+    margin: 0;
+  }
+}

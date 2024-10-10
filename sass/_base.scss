@@ -1,0 +1,42 @@
+$color_text_dark: #021912;
+$color_main_gradient: #0ca678, #20c997;
+$color_card_gradient: rgb(6, 89, 64), rgb(6, 102, 73);
+$color_backrground_dark: #021912;
+$color_background_white: #9cccbd;
+$color_text_white: #cee5de;
+$color_card_face: #b2f2bb;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  gap: 4.8rem;
+  padding: 2.4rem;
+  background: linear-gradient($color_main_gradient);
+  color: #{$color_text_dark};
+}
+
+.main {
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75vw;
+  margin: 0 auto;
+  height: calc(100vh - 6.2rem - 4.2rem);
+}
