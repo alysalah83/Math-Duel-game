@@ -71,16 +71,11 @@
   html {
     font-size: 25%;
   }
-  .side {
-    width: 30vw;
-  }
-}
-
-@media (max-width: 400px) {
   body {
-    padding: 1.6rem;
-    justify-content: space-between;
+    padding: 2.4rem;
+    flex-direction: column;
   }
+
   .cards__section {
     max-width: 100%;
   }
@@ -89,5 +84,15 @@
   }
   .main {
     margin: 0;
+    order: -1;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 7rem;
+    max-height: 60%;
+  }
+  .side {
+    order: 1;
+    width: 50vw;
+    height: fit-content;
   }
 }
