@@ -89,12 +89,10 @@ class View {
 
       // flip the card and adding it to current cards
       this.#onCardClick(card);
-      console.log(this.#currentCardsCount, this.#currentCards);
 
       if (this.#currentCardsCount === 2) {
         const solve1 = getSolve(this.#getValue(0));
         const solve2 = getSolve(this.#getValue(1));
-        console.log(solve1, solve2);
 
         // checking the solve of clicked cards
         this.#checkCardsSolve(solve1, solve2);

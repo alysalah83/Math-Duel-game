@@ -4,7 +4,6 @@ export const randomNum = function (range) {
 
 export const randomOprator = function (choseOprator) {
   const oprator = ['+', '-', '*'];
-  console.log(randomNum(choseOprator));
   return oprator[randomNum(choseOprator)];
 };
 
@@ -44,13 +43,11 @@ export const getSolve = function (equ) {
 
 export const randomConcat = function (arr1, arr2) {
   const arr = [...arr1, ...arr2];
-  console.log(arr);
 
   for (let i = arr.length - 1; i > 0; i--) {
     const randomIndex = randomNum(i + 1);
     [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
   }
 
-  console.log(arr);
   return arr;
 };
