@@ -1,7 +1,8 @@
 $color_text_dark: #021912;
 $color_main_gradient: #0ca678, #20c997;
 $color_card_gradient: rgb(6, 89, 64), rgb(6, 102, 73);
-$color_backrground_dark: #021912;
+$color_backrground_dark1: #021912;
+$color_background_dark2: #033324;
 $color_background_white: #9cccbd;
 $color_text_white: #cee5de;
 $color_card_face: #b2f2bb;
@@ -18,6 +19,7 @@ html {
 }
 
 body {
+  position: relative;
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -39,4 +41,5 @@ body {
   width: 75vw;
   margin: 0 auto;
   height: calc(100vh - 6.2rem - 4.2rem);
+  transition: filter 0.3s ease;
 }

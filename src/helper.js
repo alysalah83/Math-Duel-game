@@ -2,22 +2,44 @@ export const randomNum = function (range) {
   return Math.floor(Math.random() * range);
 };
 
-export const randomOprator = function () {
-  const oprator = ['+', '*', '-'];
-  return oprator.at(randomNum(3) - 1);
+export const randomOprator = function (choseOprator) {
+  const oprator = ['+', '-', '*'];
+  console.log(randomNum(choseOprator));
+  return oprator[randomNum(choseOprator)];
 };
 
 export const getSolve = function (equ) {
   const arr = equ.split(' ');
   if (arr.length === 1) return parseInt(equ);
-  const [numStr1, oprator, numStr2] = arr;
+  const [numStr1, operator, numStr2, operator2 = false, numStr3 = false] = arr;
   const num1 = parseInt(numStr1);
   const num2 = parseInt(numStr2);
+  const num3 = numStr3 === false ? false : parseInt(numStr3);
+  if (!operator2) {
+    if (operator === '+') return num1 + num2;
+    if (operator === '-') return num1 - num2;
+    if (operator === '*') return num1 * num2;
+    return false;
+  }
 
-  if (oprator === '+') return num1 + num2;
-  if (oprator === '-') return num1 - num2;
-  if (oprator === '*') return num1 * num2;
-  return false;
+  if (operator2) {
+    if (operator === '+') {
+      if (operator2 === '+') return num1 + num2 + num3;
+      if (operator2 === '-') return num1 + num2 - num3;
+      if (operator2 === '*') return num1 + num2 * num3;
+    }
+    if (operator === '-') {
+      if (operator2 === '+') return num1 - num2 + num3;
+      if (operator2 === '-') return num1 - num2 - num3;
+      if (operator2 === '*') return num1 - num2 * num3;
+    }
+    if (operator === '*') {
+      if (operator2 === '+') return num1 * num2 + num3;
+      if (operator2 === '-') return num1 * num2 - num3;
+      if (operator2 === '*') return num1 * num2 * num3;
+    }
+    return false;
+  }
 };
 
 export const randomConcat = function (arr1, arr2) {

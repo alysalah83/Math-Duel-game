@@ -2,6 +2,8 @@ import { randomConcat, getSolve, getValue } from './helper';
 
 class View {
   #data;
+  #side = document.querySelector('.side');
+  #main = document.querySelector('.main');
   #cardsContainer = document.querySelector('.cards');
   #cards = Array.from(document.querySelectorAll('.card'));
   #cardsFace = document.querySelectorAll('.card__face');
@@ -9,9 +11,11 @@ class View {
   #curScoreEle = document.querySelector('.cur__score');
   #bestScoreEle = document.querySelector('.best__score');
   #bestTimeEle = document.querySelector('.best__timer');
+  #selector = document.getElementById('difficulty__chose');
   #btnPlay = document.querySelector('.play__again');
 
   #play = false;
+  #timer;
   #currentCards = [];
   #currentCardsCount;
   #curScore = 0;
@@ -28,10 +32,11 @@ class View {
     this.#generateVlueMarkup();
   }
 
-  #resetCurScoreAndTime() {
+  #resetRound() {
     this.#curScore = 0;
     this.#curScoreEle.textContent = 0;
     this.#timerNum.textContent = 0;
+    if (this.#side.classList.contains('winning')) this.#toggleWinning();
   }
 
   #getValue(index) {
@@ -41,7 +46,7 @@ class View {
   addHandlerPlayClick(handler) {
     this.#btnPlay.addEventListener('click', e => {
       e.preventDefault();
-      this.#resetCurScoreAndTime();
+      this.#resetRound();
       const fliped = this.#cards.some(card =>
         card.classList.contains('card__flip')
       );
@@ -51,7 +56,7 @@ class View {
           card.classList.add('card__flip');
           card.dataset.state = false;
         });
-        handler();
+        handler(this.#selector.value);
       }
       if (fliped) {
         this.#play = false;
@@ -59,13 +64,17 @@ class View {
           card.classList.remove('card__flip');
         });
       }
-      const timer = setInterval(_ => {
+
+      this.#sec = 0;
+      clearInterval(this.#timer);
+
+      this.#timer = setInterval(_ => {
         if (this.#play) {
           this.#sec++;
           this.#timerNum.textContent = `${this.#sec}s`;
         } else {
           this.#sec = 0;
-          clearInterval(timer);
+          clearInterval(this.#timer);
         }
       }, 1000);
     });
@@ -137,9 +146,15 @@ class View {
     }
   }
 
+  #toggleWinning() {
+    this.#side.classList.toggle('winning');
+    this.#main.classList.toggle('blur');
+  }
+
   #setBestScoreAndTime() {
     if (this.#cards.every(card => card.dataset.state === 'true')) {
       this.#play = false;
+      this.#toggleWinning();
 
       this.#bestScore = parseInt(this.#bestScoreEle.textContent);
       if (isNaN(this.#bestScore)) {
