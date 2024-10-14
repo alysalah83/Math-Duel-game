@@ -74,7 +74,6 @@
   body {
     padding: 2.4rem;
     flex-direction: column;
-    height: fit-content;
   }
 
   .cards__section {
@@ -95,6 +94,7 @@
   .side {
     order: 1;
     width: 50vw;
+    height: fit-content;
   }
   .winning {
     top: 50%;
